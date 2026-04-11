@@ -1,27 +1,40 @@
 name: Build IPA
 on: [push]
+
 jobs:
   build:
     runs-on: macos-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # تم التحديث للنسخة 4
+        uses: actions/checkout@v4
 
       - name: Install XcodeGen
         run: brew install xcodegen
 
-      - name: Generate Project
+      - name: Generate Xcode Project
         run: xcodegen generate
 
-      - name: Build IPA
+      - name: Build and Archive
         run: |
-          xcodebuild archive -scheme AetherWidgets -archivePath build.xcarchive -sdk iphoneos CODE_SIGNING_ALLOWED=NO
+          xcodebuild archive \
+            -project AetherWidgets.xcodeproj \
+            -scheme AetherWidgets \
+            -archivePath build.xcarchive \
+            -sdk iphoneos \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ENTITLEMENTS="" \
+            ENTITLEMENTS_REQUIRED=NO \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
+
+      - name: Create IPA (Payload Folder)
+        run: |
           mkdir -p Payload
           cp -r build.xcarchive/Products/Applications/*.app Payload/
           zip -r AetherWidgets.ipa Payload
 
-      - name: Upload IPA
-        uses: actions/upload-artifact@v4 # هذا هو السطر الذي سبب المشكلة وتم تصحيحه
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
         with:
           name: App-IPA
           path: AetherWidgets.ipa
