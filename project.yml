@@ -1,11 +1,24 @@
 name: AetherWidgets
 options:
   bundleIdPrefix: com.revo
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 10.0.0
 targets:
   AetherWidgets:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
     sources: [AetherWidgets]
+    dependencies:
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseCore
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets
+      CODE_SIGNING_ALLOWED: NO
+      CODE_SIGNING_REQUIRED: NO
