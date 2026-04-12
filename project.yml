@@ -10,13 +10,15 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
-    sources: [AetherWidgets]
+    sources: 
+      - AetherWidgets/AetherWidgets # هذا المسار الصحيح حسب صورك
     dependencies:
+      - package: Firebase
+        product: FirebaseCore
       - package: Firebase
         product: FirebaseFirestore
       - package: Firebase
         product: FirebaseAnalytics
-      - package: Firebase
-        product: FirebaseCore
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets
+      CODE_SIGNING_ALLOWED: NO
