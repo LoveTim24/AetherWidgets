@@ -9,9 +9,11 @@ jobs:
         run: brew install xcodegen
       - name: Generate Project
         run: xcodegen generate
+      - name: Resolve Packages
+        run: xcodebuild -resolvePackageDependencies -project AetherWidgets.xcodeproj -scheme AetherWidgets
       - name: Build IPA
         run: |
-          xcodebuild archive -scheme AetherWidgets -archivePath build.xcarchive -sdk iphoneos CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO
+          xcodebuild archive -project AetherWidgets.xcodeproj -scheme AetherWidgets -archivePath build.xcarchive -sdk iphoneos CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO
           mkdir -p Payload
           cp -r build.xcarchive/Products/Applications/*.app Payload/
           zip -r AetherWidgets.ipa Payload
