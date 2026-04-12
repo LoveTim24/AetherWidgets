@@ -11,7 +11,7 @@ targets:
     platform: iOS
     deploymentTarget: "17.0"
     sources: 
-      - AetherWidgets/AetherWidgets # هذا المسار الصحيح حسب صورك
+      - AetherWidgets # هذا هو المسار الصحيح الآن
     dependencies:
       - package: Firebase
         product: FirebaseCore
