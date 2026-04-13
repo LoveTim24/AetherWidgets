@@ -1,11 +1,13 @@
 name: AetherWidgets
 options:
   bundleIdPrefix: com.revo
-  projectFormat: "Xcode 14" # هذا السطر يحل مشكلة الـ format version 77
+  projectFormat: xcode15_1
+
 packages:
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
     from: 10.0.0
+
 targets:
   AetherWidgets:
     type: application
