@@ -14,6 +14,10 @@ targets:
     deploymentTarget: "17.0"
     sources:
       - path: Sources
+        excludes:
+          - "AetherWidget.swift"
+          - "AetherWidgetBundle.swift"
+          - "AppIntent.swift"
     resources:
       - path: GoogleService-Info.plist
     dependencies:
@@ -23,8 +27,25 @@ targets:
         product: FirebaseFirestore
       - package: Firebase
         product: FirebaseAnalytics
+      - target: AetherWidgetExtension
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets
+      SWIFT_VERSION: "5.0"
+      CODE_SIGNING_ALLOWED: NO
+      CODE_SIGNING_REQUIRED: NO
+
+  AetherWidgetExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Sources
+        includes:
+          - "AetherWidget.swift"
+          - "AetherWidgetBundle.swift"
+          - "AppIntent.swift"
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets.widget
       SWIFT_VERSION: "5.0"
       CODE_SIGNING_ALLOWED: NO
       CODE_SIGNING_REQUIRED: NO
