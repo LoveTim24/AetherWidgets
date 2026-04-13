@@ -15,9 +15,9 @@ targets:
     sources:
       - path: Sources
         excludes:
-          - "AetherWidget.swift"
-          - "AetherWidgetBundle.swift"
-          - "AppIntent.swift"
+          - AetherWidget.swift
+          - AetherWidgetBundle.swift
+          - AppIntent.swift
     resources:
       - path: GoogleService-Info.plist
     dependencies:
@@ -41,9 +41,9 @@ targets:
     sources:
       - path: Sources
         includes:
-          - "AetherWidget.swift"
-          - "AetherWidgetBundle.swift"
-          - "AppIntent.swift"
+          - AetherWidget.swift
+          - AetherWidgetBundle.swift
+          - AppIntent.swift
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets.widget
       SWIFT_VERSION: "5.0"
