@@ -10,7 +10,7 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
-    sources: ["."] # يقرأ الملفات من المجلد الرئيسي كما نصح الويكي
+    sources: ["AetherWidgets"] # تأكد أن ملفات السويفت داخل مجلد بهذا الاسم
     dependencies:
       - package: Firebase
         product: FirebaseCore
