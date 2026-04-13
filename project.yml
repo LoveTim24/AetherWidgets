@@ -1,6 +1,7 @@
 name: AetherWidgets
 options:
   bundleIdPrefix: com.revo
+  projectFormat: "Xcode 14" # هذا السطر يحل مشكلة الـ format version 77
 packages:
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
@@ -10,7 +11,7 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
-    sources: ["."] # يقرأ الملفات من المجلد الرئيسي مباشرة
+    sources: ["."]
     dependencies:
       - package: Firebase
         product: FirebaseCore
@@ -21,3 +22,4 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets
       CODE_SIGNING_ALLOWED: NO
+      CODE_SIGNING_REQUIRED: NO
