@@ -14,12 +14,8 @@ targets:
     deploymentTarget: "17.0"
     sources:
       - path: Sources
-        excludes:
-          - "*.yml"
-          - "*.md"
-          - "LICENSE"
-          - ".gitignore"
-          - ".github/**"
+    resources:
+      - path: GoogleService-Info.plist
     dependencies:
       - package: Firebase
         product: FirebaseCore
