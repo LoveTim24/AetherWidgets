@@ -1,7 +1,6 @@
 name: AetherWidgets
 options:
   bundleIdPrefix: com.revo
-  projectFormat: xcode15_1
 
 packages:
   Firebase:
@@ -13,7 +12,14 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
-    sources: ["."]
+    sources:
+      - path: .
+        excludes:
+          - "*.yml"
+          - "*.md"
+          - "LICENSE"
+          - ".gitignore"
+          - ".github/**"
     dependencies:
       - package: Firebase
         product: FirebaseCore
@@ -23,5 +29,6 @@ targets:
         product: FirebaseAnalytics
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets
+      SWIFT_VERSION: "5.0"
       CODE_SIGNING_ALLOWED: NO
       CODE_SIGNING_REQUIRED: NO
