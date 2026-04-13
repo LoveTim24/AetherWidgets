@@ -1,0 +1,23 @@
+name: AetherWidgets
+options:
+  bundleIdPrefix: com.revo
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: 10.0.0
+targets:
+  AetherWidgets:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources: ["."] # يقرأ الملفات من المجلد الرئيسي كما نصح الويكي
+    dependencies:
+      - package: Firebase
+        product: FirebaseCore
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: Firebase
+        product: FirebaseAnalytics
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.revo.aetherwidgets
+      CODE_SIGNING_ALLOWED: NO
