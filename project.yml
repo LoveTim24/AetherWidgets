@@ -13,7 +13,7 @@ targets:
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - path: .
+      - path: Sources
         excludes:
           - "*.yml"
           - "*.md"
